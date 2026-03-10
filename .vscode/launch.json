@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Run (No Debug)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "C++: g++ build active file",
+            "setupCommands": [
+                {
+                    "description": "Disable gdb pretty printing",
+                    "text": "-gdb-set print pretty off",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
