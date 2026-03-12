@@ -1,0 +1,168 @@
+#compile = "make -s"
+run = "./main"
+entrypoint = "controlflowforloops.cpp"
+compile = "g++ -o main controlflowforloops.cpp"
+#run = "./main"
+#entrypoint = "desired.cpp"
+hidden = ["main", "**/*.o", "**/*.d", ".ccls-cache", "Makefile"]
+
+[nix]
+channel = "stable-22_11"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", ".ccls-cache"]
+
+[debugger]
+support = true
+
+[debugger.compile]
+command = ["make", "main-debug"]
+noFileArgs = true
+
+[debugger.interactive]
+transport = "stdio"
+startCommand = ["dap-cpp"]
+
+[debugger.interactive.initializeMessage]
+command = "initialize"
+type = "request"
+
+[debugger.interactive.initializeMessage.arguments]
+adapterID = "cppdbg"
+clientID = "replit"
+clientName = "replit.com"
+columnsStartAt1 = true
+linesStartAt1 = true
+locale = "en-us"
+pathFormat = "path"
+supportsInvalidatedEvent = true
+supportsProgressReporting = true
+supportsRunInTerminalRequest = true
+supportsVariablePaging = true
+supportsVariableType = true
+
+[debugger.interactive.launchMessage]
+command = "launch"
+type = "request"
+
+[debugger.interactive.launchMessage.arguments]
+MIMode = "gdb"
+arg = []
+cwd = "."
+environment = []
+externalConsole = false
+logging = {}
+miDebuggerPath = "gdb"
+name = "g++ - Build and debug active file"
+program = "./main-debug"
+request = "launch"
+setupCommands = [
+	{ description = "Enable pretty-printing for gdb", ignoreFailures = true, text = "-enable-pretty-printing" },
+]
+stopAtEntry = false
+type = "cppdbg"
+
+# arithmetic_operators
+# arithmetic0operaters.cpp
+
+# boolean_operations
+# boloean.cpp
+# user_input
+# user_input.cpp
+# control_flow
+# controlflowswitchstatements.cpp
+# controlflow_ifstatements.cpp
+# controlflow_ifstatements_cleanversion1.cpp
+# controlflowswitchstatements_cleanversion.cpp
+
+# comparison_operators
+# comparisionoperaters.cpp
+
+# introduction_exercises
+# main.cpp
+# integer.cpp
+[languages]
+
+[languages.cpp]
+pattern = "**/*.{cpp,h}"
+
+[languages.cpp.languageServer]
+start = "ccls"
+
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Run Recap Day 1"
+author = 11074566
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "g++ -o recap_day1 recap_day1.cpp"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./recap_day1"
+
+[[workflows.workflow]]
+name = "Run Day 2"
+author = 11074566
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "g++ -o day2 day2_arithmetic.cpp"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./day2"
+
+[[workflows.workflow]]
+name = "Practice Operators"
+author = 11074566
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "g++ -o operators_practice day2_operators_pratice.cpp"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./operators_practice"
+
+[[workflows.workflow]]
+name = "Run Real-World Examples"
+author = 11074566
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "g++ -o real_world_examples day3_control_flow_applications.cpp"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./real_world_examples"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Run C++ App"
+
+[[workflows.workflow]]
+name = "Run C++ App"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "make && ./main"
+
+[workflows.workflow.metadata]
+outputType = "console"
