@@ -16,6 +16,10 @@ struct Sprite {
     float distanceFromOrigin() {
         return x + y;
     }
+
+    bool isOnScreen() {
+        return x > 0 && y > 0;
+    }
 };
 
 int main() {
@@ -28,6 +32,7 @@ int main() {
     s.hide();
     std::cout << s.visible << std::endl;
     std::cout << s.distanceFromOrigin() << std::endl;
+    std::cout << s.isOnScreen() << std::endl;
 
     return 0;
 }
