@@ -23,4 +23,4 @@ int main () {
   //  std::cout <<"X: " << pos.x << " y: " << pos.y << std::endl;
    pos.print(); // method can be used to print the struct members after modification 
     return 0;
-}
+//}
