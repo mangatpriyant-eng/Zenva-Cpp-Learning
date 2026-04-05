@@ -5,6 +5,8 @@ struct Position {
     float y;
 // constructor can be added to struct as well, but it's not required
 Position(float startX, float startY) { //why is ir Position and not void i mean it not function position    
+x = startX;
+y = startY;
 } //;
 
 //Method Member functions can also be added to struct as well but it is not required
