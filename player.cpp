@@ -48,4 +48,4 @@ int main() {
     p.setX(-5.0);  // should clamp to 0!
     std::cout << "X after negative set: " << p.getX() << std::endl;
 
-    return 0; 
+    
