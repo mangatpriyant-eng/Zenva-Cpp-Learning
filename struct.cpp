@@ -11,7 +11,7 @@ Position(float startX, float startY) { //why is ir Position and not void i mean 
 void print() {
     std::cout << "X: " << x << " Y: " << y << std::endl;
 }
-}; //return0;();; // still directly accesible without needing to create an object of the struct and separete 
+//}; //return0;();; // still directly accesible without needing to create an object of the struct and separete 
 int main () {
   //  Position pos;
   Position pos(3.0 , 5.0); // constructor can be used to initialize the struct members
@@ -23,4 +23,4 @@ int main () {
   //  std::cout <<"X: " << pos.x << " y: " << pos.y << std::endl;
    pos.print(); // method can be used to print the struct members after modification 
     return 0;
- }
+}
