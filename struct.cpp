@@ -22,5 +22,5 @@ int main () {
    pos .x = 10.0 ; // members of the struct can be accessed and modified directly using the . operator
   //  std::cout <<"X: " << pos.x << " y: " << pos.y << std::endl;
    pos.print(); // method can be used to print the struct members after modification 
-    return 0;
+    return 0; }
 //}
