@@ -5,7 +5,7 @@ class Player {
     private: //;  // acess specifer private is used to make the member private
     std::string name;
     int health; 
-
+    // meh
     public:
     //constructor is a special member function 
     Player(std::string playerName, int playerHealth) {
