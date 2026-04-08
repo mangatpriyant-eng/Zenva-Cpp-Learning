@@ -10,8 +10,20 @@ class Player {
     //constructor is a special member function 
     Player(std::string playerName, int playerHealth) {
         name = playerName;
-        health = playerHealth;
+        health = playerHealth; }
+    // 
+    // Getter 
+    int getHealth() 
+    {
+        return health;
     }
+
+    // Setter 
+    
+    void setHealth(int newHealth) {
+        health = newHealth;    
+    }    
+    //}
 
 // Method member function can be added to class
 void print() {
