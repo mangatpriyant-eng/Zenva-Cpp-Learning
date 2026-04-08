@@ -33,6 +33,11 @@ void print() {
 
 int main() {
     Player p("Mario", 100);
+
+    std::cout << "Player Health is " << p.getHealth()<< std::endl;
+    //p.getHealth;
+    p.setHealth(-18);
+    std::cout << "What a Strike!!! Player Health has reduced to 82" << p.getHealth() << std::endl;
     p.print();
 
     return 0;
